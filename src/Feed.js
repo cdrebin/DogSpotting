@@ -39,20 +39,17 @@ class Feed extends React.Component {
           this.setState({ hasMore: true, page: this.state.page + 1 });
           // history.replaceState(this.state, '', '/');
         }
-        console.log("State", this.state)
       })
       .catch(error => console.log(error)); // eslint-disable-line no-console
   }
 
   addPictures(responseData) {
-    console.log("Data", responseData)
     const newPosts = this.state.posts;
 
     // For each new image
     responseData.forEach(url => {
       let info = url.split('/');
       let breed = info[4];
-      console.log(breed, url);
 
       // add breed to dict if it does not exist
       if(!this.state.breeds[breed]) {
@@ -109,7 +106,6 @@ class Feed extends React.Component {
     // Render number of likes
     var posts = this.renderPosts();
     var loader = <h4></h4>
-    console.log("hit", posts.length)
     if(posts.length > 10 ){
       loader = <h4>Loading...</h4>;
     } 
