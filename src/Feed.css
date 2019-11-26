@@ -5,6 +5,16 @@
     top: 140px;
 }
 
+.Dropdown-arrow {
+    border-style: solid;
+    border-width: 10px 10px 0;
+}
+
+.is-open .Dropdown-arrow {
+    border-color: transparent transparent #999;
+    border-width: 0 10px 10px;
+}
+
 .gallery {
     margin-top: 210px;
 }
