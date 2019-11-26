@@ -5,6 +5,7 @@ A code challenge for Jobox using the [Dog API](https://dog.ceo/dog-api/)
 
 In the project directory, you can run:
 
+### `npm install`
 ### `npm start`
 
 Runs the app in the development mode.<br />
