@@ -1,5 +1,7 @@
+# DogSpotting
+A code challenge for Jobox using the [Dog API](https://dog.ceo/dog-api/)
 
-## Available Scripts
+## Seting Up
 
 In the project directory, you can run:
 
