@@ -105,7 +105,7 @@ class Feed extends React.Component {
   render() {
     // Render number of likes
     var posts = this.renderPosts();
-    var loader = <h4></h4>
+    var loader = ""
     if(posts.length > 10 ){
       loader = <h4>Loading...</h4>;
     } 
