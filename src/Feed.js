@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Dropdown from 'react-dropdown'
-import 'react-dropdown/style.css'
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+import './Feed.css';
 
 
 class Feed extends React.Component {
@@ -11,7 +12,7 @@ class Feed extends React.Component {
   constructor(props) {
     // Initialize mutable state
     super(props);
-    this.state = { posts: [], page: 0, hasMore: false, breeds: {}, breedOptions: ["all"], breed: this.props.breed };
+    this.state = { posts: [], page: 0, hasMore: false, breeds: {}, breedOptions: [], breed: this.props.breed };
     this.fetchMoreData = this.fetchMoreData.bind(this);
   }
 
@@ -26,7 +27,7 @@ class Feed extends React.Component {
   }
 
   fetchMoreData() {
-    const url = `https://dog.ceo/api/breeds/image/random/10`;
+    const url = `https://dog.ceo/api/breeds/image/random/50`;
     fetch(url, { credentials: 'same-origin' })
       .then((response) => {
         if (!response.ok) throw Error(response.statusText);
@@ -93,11 +94,11 @@ class Feed extends React.Component {
   renderPosts() {
     // Get HTML for each post in posts
     // const postURL = `/api/v1/p/<post_id>`;
-    const arr = this.state.breed === "all" ? this.state.posts: this.state.breeds[this.state.breed];
+    const arr = this.state.breed === "all breeds" ? this.state.posts: this.state.breeds[this.state.breed];
     const result = arr && arr.map((post) => {
       return (
       
-          <img height="200px" src={post} alt="dog"/>
+          <img key={post} className="dog-pic" height="200px" src={post} alt="dog"/>
 
       )
     });
@@ -106,10 +107,16 @@ class Feed extends React.Component {
 
   render() {
     // Render number of likes
+    var posts = this.renderPosts();
+    var loader = <h4></h4>
+    console.log("hit", posts.length)
+    if(posts.length > 10 ){
+      loader = <h4>Loading...</h4>;
+    } 
     return (
       <div className="feed">
         <Dropdown
-          options={this.state.breedOptions}
+          options={["all breeds", ...this.state.breedOptions.sort()]}
           onChange={e => this.onSelect(e)}
           value={this.state.breed}
           placeholder="Select an option" 
@@ -118,11 +125,11 @@ class Feed extends React.Component {
           dataLength={this.state.posts.length}
           next={this.fetchMoreData}
           hasMore={this.state.hasMore}
-          loader={<h4>Loading...</h4>}
+          loader={loader}
           scrollableTarget="scrollableDiv"
         >
-          <div width="200px">
-            {this.renderPosts()}
+          <div className="gallery">
+            {posts}
           </div>
         </InfiniteScroll>
       </div>

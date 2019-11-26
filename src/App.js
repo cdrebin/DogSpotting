@@ -7,9 +7,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p> So I hear you like dogs... </p>
+        <h1 className="title"> Welcome to DogSpotting </h1>
+        <p className="subtitle"> Select a Breed</p>
         <Feed
-          breed="all"
+          breed="all breeds"
         />
       </header>
     </div>

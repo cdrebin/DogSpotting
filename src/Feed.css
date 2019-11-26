@@ -1,0 +1,14 @@
+.Dropdown-root {
+    width: 400px;
+    left: calc(50% - 200px);
+    position: fixed;
+    top: 140px;
+}
+
+.gallery {
+    margin-top: 210px;
+}
+
+.dog-pic {
+    margin: 10px;
+}
