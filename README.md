@@ -1,5 +1,5 @@
 # DogSpotting
-A code challenge for Jobox using the [Dog API](https://dog.ceo/dog-api/)
+A code challenge using the [Dog API](https://dog.ceo/dog-api/)
 
 ## Seting Up
 
